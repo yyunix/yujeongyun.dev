@@ -1,16 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    /* @apply bg-gray-50 text-gray-900; */
+  }
   h1 {
-    @apply text-3xl font-bold pb-6;
-  }
-  h2 {
-    @apply text-2xl font-semibold pb-4;
-  }
-  h3 {
-    @apply text-xl font-bold;
+    @apply text-3xl font-bold;
   }
   section p:not(:last-child){
     @apply pb-4;

@@ -3,51 +3,16 @@ import { useRef, useState } from "react";
 
 interface IPostsHeaderProps {
   title: string;
-  categories: string[];
-  numOfPosts: number;
-  onFilterByCategory: (category: string) => void;
+  description?: string;
 }
 
-const PostsHeader = ({
-  title,
-  categories,
-  numOfPosts,
-  onFilterByCategory,
-}: IPostsHeaderProps) => {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const onCategoryClick = (category: string) => {
-    onFilterByCategory(category);
-    setActiveCategory(category);
-  };
-
+const PostsHeader = ({ title, description }: IPostsHeaderProps) => {
   return (
     <div className="mb-8">
-      <div className="flex justify-between">
-        <h1>{title}</h1>
-        <div className="flex gap-3">
-          <p>
-            {numOfPosts} {title.toLowerCase()}
-          </p>
-          <p>{categories.length - 1} categories</p>
-        </div>
-      </div>
-      <ul className="flex gap-4 mb-2">
-        Categories:
-        {categories.map((category) => (
-          <li key={category} onClick={() => onCategoryClick(category)}>
-            <button
-              className={
-                activeCategory === category
-                  ? "underline underline-offset-2"
-                  : ""
-              }
-            >
-              {capitalizeFirstLetter(category)}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight dark:text-gray-200">
+        {title}
+      </h1>
+      <p className="my-4">{description}</p>
     </div>
   );
 };

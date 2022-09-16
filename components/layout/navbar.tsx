@@ -1,14 +1,22 @@
 import Link from "next/link";
-import React from "react";
+import { useTheme } from "next-themes";
 
 const Navbar = () => {
+  const { theme, setTheme } = useTheme();
+
+  console.log(theme);
   return (
-    <nav className="flex gap-4 uppercase py-8">
-      <Link href="/">about</Link>
-      <Link href="/blog">blog</Link>
-      <Link href="/books">Books</Link>
-      <Link href="/learning">learning</Link>
-    </nav>
+    <div className="flex justify-between">
+      <nav className="flex gap-4 capitalize font-semibold py-8">
+        <Link href="/">about</Link>
+        <Link href="/blog">blog</Link>
+        <Link href="/books">Books</Link>
+        <Link href="/learning">learning</Link>
+      </nav>
+      <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+        toggle
+      </button>
+    </div>
   );
 };
 
