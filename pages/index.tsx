@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import Intro from "@/components/home-page/intro";
+import Intro from "@/components/home/intro";
 
 const HomePage = () => {
   return (

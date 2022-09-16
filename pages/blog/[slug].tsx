@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
+import Head from "next/head";
 
-import PostContent from "@/components/blog-post-detail/post-content";
+import PostContent from "@/components/blog/blog-detail/post-content";
 import { getPostData, getPostsFiles } from "@/lib/posts-util";
 import { PostDataType } from "@/types/post";
-import Head from "next/head";
 
 interface IPostDetailPageProps {
   post: PostDataType;

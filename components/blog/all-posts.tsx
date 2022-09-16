@@ -1,6 +1,7 @@
 import { PostDataType } from "@/types/post";
 import React, { useState } from "react";
-import PostsHeader from "../layout/posts-header";
+import PostsEmpty from "../shared/posts-empty";
+import PostsHeader from "../shared/posts-header";
 import PostsGrid from "./posts-grid";
 
 interface AllBlogPostsProps {
@@ -30,7 +31,11 @@ const AllBlogPosts = ({ posts, categories }: AllBlogPostsProps) => {
         numOfPosts={filteredPosts.length}
         onFilterByCategory={filterPostsByCategory}
       />
-      <PostsGrid posts={filteredPosts} />
+      {posts.length ? (
+        <PostsGrid posts={filteredPosts} />
+      ) : (
+        <PostsEmpty title="blog articles" />
+      )}
     </>
   );
 };

@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import AllBlogPosts from "@/components/blog-posts/all-posts";
+import AllBlogPosts from "@/components/blog/all-posts";
 import { PostDataType } from "@/types/post";
 import { getAllPosts, getAllPostsCategories } from "@/lib/posts-util";
 

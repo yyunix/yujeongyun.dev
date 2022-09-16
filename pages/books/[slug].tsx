@@ -4,7 +4,7 @@ import { ParsedUrlQuery } from "querystring";
 import { getBookData, getBooksFiles } from "@/lib/books-util";
 import { BookDataType } from "@/types/book";
 import Head from "next/head";
-import BookContent from "@/components/book-post-detail/book-content";
+import BookContent from "@/components/books/book-detail/book-content";
 
 interface IBookDetailPageProps {
   book: BookDataType;

@@ -2,8 +2,9 @@ import { useState } from "react";
 
 import { BookDataType } from "@/types/book";
 
-import PostsHeader from "../layout/posts-header";
+import PostsHeader from "../shared/posts-header";
 import BooksGrid from "./books-grid";
+import PostsEmpty from "../shared/posts-empty";
 
 interface IAllBooksProps {
   books: BookDataType[];
@@ -32,7 +33,11 @@ const AllBooks = ({ books, categories }: IAllBooksProps) => {
         numOfPosts={filteredBooks.length}
         onFilterByCategory={filterBooksByCategory}
       />
-      <BooksGrid books={filteredBooks} />
+      {books.length ? (
+        <BooksGrid books={filteredBooks} />
+      ) : (
+        <PostsEmpty title="books" />
+      )}
     </>
   );
 };
