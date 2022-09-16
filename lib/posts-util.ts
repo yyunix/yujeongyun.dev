@@ -49,3 +49,15 @@ export function getAllPosts(): PostDataType[] {
   );
   return sortedPosts;
 }
+
+/**
+ * Get all categories
+ */
+export function getAllPostsCategories() {
+  const postFiles = getPostsFiles();
+  const allCategories = postFiles.map((postFile) => {
+    return getPostData(postFile).category;
+  });
+
+  return allCategories;
+}

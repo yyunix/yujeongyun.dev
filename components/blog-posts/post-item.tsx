@@ -1,19 +1,18 @@
-import Image from "next/image";
 import Link from "next/link";
 
-interface PostItemProps {
+interface IPostItemProps {
   title: string;
   description: string;
   slug: string;
   category: string;
 }
 
-const PostItem = ({ title, slug, description, category }: PostItemProps) => {
+const PostItem = ({ title, slug, description, category }: IPostItemProps) => {
   const linkPath = `/blog/${slug}`;
 
   return (
     <li className="pb-6">
-      <button className="uppercase text-sm">#{category}</button>
+      <p className="uppercase text-sm">{category}</p>
       <Link href={linkPath}>
         <a>
           <h3>{title}</h3>
