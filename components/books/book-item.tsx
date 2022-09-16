@@ -21,7 +21,7 @@ const BookItem = ({
 
   return (
     <li className="pb-6 flex gap-4 items-start">
-      <div className="flex">
+      <div className="flex shrink-0">
         <Image src={imagePath} alt={title} width={90} height={105} />
       </div>
       <div>

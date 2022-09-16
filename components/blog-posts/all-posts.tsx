@@ -1,4 +1,5 @@
 import React from "react";
+import PostsHeader from "../layout/posts-header";
 import PostsGrid from "./posts-grid";
 
 interface AllBlogPostsProps {
@@ -8,7 +9,6 @@ interface AllBlogPostsProps {
 const AllBlogPosts = ({ posts }: AllBlogPostsProps) => {
   return (
     <>
-      <h1>Blog</h1>
       <PostsGrid posts={posts} />
     </>
   );

@@ -24,6 +24,7 @@ export function getBookData(bookId: string): BookDataType {
     description: data.description,
     author: data.author,
     rating: data.rating,
+    category: data.category,
     content,
   };
 }
@@ -50,4 +51,16 @@ export function getAllBooks(): BookDataType[] {
   );
 
   return sortedBooks;
+}
+
+/**
+ * Get all categories
+ */
+export function getAllBookCategories() {
+  const bookFiles = getBooksFiles();
+  const allCategories = bookFiles.map((bookfile) => {
+    return getBookData(bookfile).category;
+  });
+
+  return allCategories;
 }

@@ -6,5 +6,6 @@ export interface BookDataType {
   title: string;
   description: string;
   author: string;
+  category: string;
   rating: number;
 }

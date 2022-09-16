@@ -1,11 +1,11 @@
 ---
-title: "The Power of Habit: Why We Do What We do in Life and Business"
+title: "Book"
 image: the-power-of-habit.jpg
 date: '2022-10-15'
 description: Blog post about hello world
 author: Charles Duhigg 
 rating: 10
-category: Management
+category: Health
 ---
 
 ## High-Level Thoughts
