@@ -22,6 +22,7 @@ export function getPostData(postId: string): PostDataType {
     image: data.image,
     title: data.title,
     description: data.description,
+    category: data.category,
     content,
   };
 }

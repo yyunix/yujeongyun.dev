@@ -2,3 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-3xl font-bold pb-6;
+  }
+  h2 {
+    @apply text-2xl font-semibold pb-4;
+  }
+  h3 {
+    @apply text-xl font-bold;
+  }
+  section p:not(:last-child){
+    @apply pb-4;
+  }
+}

@@ -3,6 +3,7 @@ title: Hello World
 image: hello-world.jpg
 date: '2022-10-15'
 description: Blog post about hello world
+category: code
 ---
 
 NextJS is a **framework for ReactJS**.

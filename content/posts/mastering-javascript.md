@@ -3,6 +3,7 @@ title: Mastering JavaScript
 image: mastering-js-thumb.jpg
 date: '2021-10-30'
 description: Blog post about Mastering JavaScript
+category: personal
 ---
 
 JavaScript powers the web - it's **the** most important programming language you need to know as a web developer.

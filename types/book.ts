@@ -1,9 +1,10 @@
-export interface PostDataType {
+export interface BookDataType {
   slug: string;
   content: string;
   date: Date;
   image: string;
   title: string;
   description: string;
-  category: string;
+  author: string;
+  rating: number;
 }

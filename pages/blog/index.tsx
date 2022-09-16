@@ -1,20 +1,21 @@
-import AllPosts from "@/components/posts/all-posts";
-import { PostDataType } from "@/types/post";
-import { getAllPosts } from "@/lib/posts-util";
 import Head from "next/head";
 
-interface AllPostsPageProps {
+import AllBlogPosts from "@/components/blog-posts/all-posts";
+import { PostDataType } from "@/types/post";
+import { getAllPosts } from "@/lib/posts-util";
+
+interface AllBlogPostsPageProps {
   posts: PostDataType[];
 }
 
-const AllPostsPage = ({ posts }: AllPostsPageProps) => {
+const AllBlogPostsPage = ({ posts }: AllBlogPostsPageProps) => {
   return (
     <div>
       <Head>
         <title>Yujeong&apos;s Digital Space | Software Developer</title>
         <meta name="description" content="JavaScript blog" />
       </Head>
-      <AllPosts posts={posts} />
+      <AllBlogPosts posts={posts} />
     </div>
   );
 };
@@ -29,4 +30,4 @@ export function getStaticProps() {
   };
 }
 
-export default AllPostsPage;
+export default AllBlogPostsPage;
