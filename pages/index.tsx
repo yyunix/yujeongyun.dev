@@ -1,15 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-
-const DEV_POSTS = [
-  {
-    id: 1,
-    title: "Hello World",
-    slug: "hello-world",
-    date: "2022-09-10",
-    image: "hello-world.jpg",
-  },
-];
+import Intro from "@/components/home-page/intro";
 
 const HomePage = () => {
   return (
@@ -18,7 +9,7 @@ const HomePage = () => {
         <title>Yujeong&apos;s Digital Space | Software Developer</title>
         <meta name="description" content="Home page" />
       </Head>
-      <Link href="/posts">Posts</Link>
+      <Intro />
     </div>
   );
 };
