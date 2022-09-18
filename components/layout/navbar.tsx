@@ -2,13 +2,6 @@ import ThemeToggler from "../shared/theme-toggler";
 import Menu from "./menu";
 import MenuIcon from "@/assets/menu.svg";
 
-export const MENU = [
-  { href: "/", label: "About" },
-  { href: "/blog", label: "Blog" },
-  { href: "/books", label: "Books" },
-  { href: "/learning", label: "Learning" },
-];
-
 interface INavbarProps {
   toggleSidebar: () => void;
 }

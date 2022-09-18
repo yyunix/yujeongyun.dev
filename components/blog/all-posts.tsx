@@ -3,11 +3,11 @@ import PostsEmpty from "../shared/posts-empty";
 import PostsHeader from "../shared/posts-header";
 import PostsGrid from "./posts-grid";
 
-interface AllBlogPostsProps {
+interface IAllBlogPostsProps {
   posts: PostDataType[];
 }
 
-const AllBlogPosts = ({ posts }: AllBlogPostsProps) => {
+const AllBlogPosts = ({ posts }: IAllBlogPostsProps) => {
   return (
     <>
       <PostsHeader

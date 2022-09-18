@@ -61,7 +61,7 @@ const PostContent = ({ post }: IPostContentProps) => {
     <div>
       <BackButton />
       <article>
-        <PostHeader title={post.title} image={imagePath} date={post.date} />
+        <PostHeader title={post.title} date={post.date} />
         <PostContentWrapper>
           <ReactMarkdown components={markdownComponents}>
             {post.content}

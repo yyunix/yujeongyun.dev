@@ -1,12 +1,9 @@
-import Image from "next/image";
-
-interface PostHeaderProps {
+interface IPostHeaderProps {
   title: string;
-  image: string;
   date: Date;
 }
 
-const PostHeader = ({ title, image, date }: PostHeaderProps) => {
+const PostHeader = ({ title, date }: IPostHeaderProps) => {
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
