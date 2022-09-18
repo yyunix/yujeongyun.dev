@@ -15,18 +15,19 @@ const PostItem = ({ title, slug, description, date }: IPostItemProps) => {
   });
 
   return (
-    <li className="">
+    <li>
       <Link href={linkPath}>
-        <a className="px-5 py-2 -mx-5 hover:bg-gray-100 dark:hover:bg-gray-800 flex justify-between rounded-lg">
+        <a className="md:px-5 py-4 md:-mx-5 md:hover:bg-gray-100 md:dark:hover:bg-gray-800 flex flex-col md:flex-row gap-2 md:gap-10 rounded-lg">
+          <time className="text-sm md:text-base text-gray-500">
+            {formattedDate}
+          </time>
           <div>
             <h3 className="font-bold text-transparent  bg-clip-text bg-gradient-to-r from-blue-500 to-violet-700">
               {title}
             </h3>
-            <div className="prose prose-gray dark:prose-invert">
-              <p>{description}</p>
-            </div>
+
+            <p>{description}</p>
           </div>
-          <div>{formattedDate}</div>
         </a>
       </Link>
     </li>

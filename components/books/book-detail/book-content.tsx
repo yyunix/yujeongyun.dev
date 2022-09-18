@@ -4,6 +4,8 @@ import ReactMarkdown from "react-markdown";
 
 import { BookDataType } from "@/types/book";
 import BookHeader from "./book-header";
+import PostContentWrapper from "@/components/shared/post-content-wrapper";
+import BackButton from "@/components/shared/back-button";
 
 interface IBookContentProps {
   book: BookDataType;
@@ -43,19 +45,22 @@ const BookContent = ({ book }: IBookContentProps) => {
   };
 
   return (
-    <article>
-      <BookHeader
-        title={book.title}
-        image={imagePath}
-        author={book.author}
-        rating={book.rating}
-      />
-      <div className="prose prose-gray dark:prose-invert prose-a:text-teal-600 hover:prose-a:text-teal-500 dark:prose-a:text-teal-500 dark:hover:prose-a:text-teal-400 prose-img:rounded-xl prose-img:shadow-md prose-pre:bg-indigo-100 prose-pre:text-indigo-800">
-        <ReactMarkdown components={markdownComponents}>
-          {book.content}
-        </ReactMarkdown>
-      </div>
-    </article>
+    <div>
+      <BackButton />
+      <article>
+        <BookHeader
+          title={book.title}
+          image={imagePath}
+          author={book.author}
+          rating={book.rating}
+        />
+        <PostContentWrapper>
+          <ReactMarkdown components={markdownComponents}>
+            {book.content}
+          </ReactMarkdown>
+        </PostContentWrapper>
+      </article>
+    </div>
   );
 };
 

@@ -9,7 +9,7 @@ interface BookHeaderProps {
 
 const BookHeader = ({ title, image, author, rating }: BookHeaderProps) => {
   return (
-    <div className="flex gap-8 mb-10">
+    <div className="flex gap-8">
       <div className="shrink-0">
         <Image src={image} alt={title} width={170} height={200} />
       </div>

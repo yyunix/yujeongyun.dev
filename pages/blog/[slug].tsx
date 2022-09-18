@@ -16,13 +16,13 @@ interface IParams extends ParsedUrlQuery {
 
 const PostDetailPage = ({ post }: IPostDetailPageProps) => {
   return (
-    <div>
+    <>
       <Head>
         <title>{post.title}</title>
         <meta name="description" content={post.description} />
       </Head>
       <PostContent post={post} />
-    </div>
+    </>
   );
 };
 

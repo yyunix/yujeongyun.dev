@@ -1,6 +1,3 @@
-import { capitalizeFirstLetter } from "@/lib/common-util";
-import { useRef, useState } from "react";
-
 interface IPostsHeaderProps {
   title: string;
   description?: string;

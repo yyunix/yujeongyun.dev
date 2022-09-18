@@ -9,10 +9,5 @@
     font-family: 'Inter', sans-serif;
     /* @apply bg-gray-50 text-gray-900; */
   }
-  h1 {
-    @apply text-3xl font-bold;
-  }
-  section p:not(:last-child){
-    @apply pb-4;
-  }
+
 }

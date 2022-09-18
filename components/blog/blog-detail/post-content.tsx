@@ -2,23 +2,18 @@ import Image from "next/image";
 import { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  vs,
-  vsDark,
-  vscDarkPlus,
-} from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { useTheme } from "next-themes";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 import { PostDataType } from "@/types/post";
 import PostHeader from "./post-header";
+import PostContentWrapper from "@/components/shared/post-content-wrapper";
+import BackButton from "@/components/shared/back-button";
 
 interface IPostContentProps {
   post: PostDataType;
 }
 
 const PostContent = ({ post }: IPostContentProps) => {
-  const { theme } = useTheme();
-
   const imagePath = `/images/blog/${post.slug}/${post.image}`;
 
   const markdownComponents = {
@@ -63,14 +58,17 @@ const PostContent = ({ post }: IPostContentProps) => {
   };
 
   return (
-    <article>
-      <PostHeader title={post.title} image={imagePath} />
-      <div className="prose prose-gray dark:prose-invert prose-a:text-teal-600 hover:prose-a:text-teal-500 dark:prose-a:text-teal-500 dark:hover:prose-a:text-teal-400 prose-img:rounded-xl prose-img:shadow-md prose-pre:bg-transparent prose-pre:p-0 dark:prose-pre:bg-transparent">
-        <ReactMarkdown components={markdownComponents}>
-          {post.content}
-        </ReactMarkdown>
-      </div>
-    </article>
+    <div>
+      <BackButton />
+      <article>
+        <PostHeader title={post.title} image={imagePath} date={post.date} />
+        <PostContentWrapper>
+          <ReactMarkdown components={markdownComponents}>
+            {post.content}
+          </ReactMarkdown>
+        </PostContentWrapper>
+      </article>
+    </div>
   );
 };
 
