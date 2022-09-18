@@ -6,29 +6,26 @@ import { getAllPosts, getAllPostsCategories } from "@/lib/posts-util";
 
 interface AllBlogPostsPageProps {
   posts: PostDataType[];
-  categories: string[];
 }
 
-const AllBlogPostsPage = ({ posts, categories }: AllBlogPostsPageProps) => {
+const AllBlogPostsPage = ({ posts }: AllBlogPostsPageProps) => {
   return (
     <div>
       <Head>
         <title>Yujeong&apos;s Digital Space | Software Developer</title>
         <meta name="description" content="JavaScript blog" />
       </Head>
-      <AllBlogPosts posts={posts} categories={categories} />
+      <AllBlogPosts posts={posts} />
     </div>
   );
 };
 
 export function getStaticProps() {
   const allPosts = getAllPosts();
-  const postsCategories = getAllPostsCategories();
 
   return {
     props: {
       posts: allPosts,
-      categories: postsCategories,
     },
   };
 }

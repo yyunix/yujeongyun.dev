@@ -1,11 +1,16 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { ParsedUrlQuery } from "querystring";
 import Head from "next/head";
-
+import { getMDXComponent } from "mdx-bundler/client";
 import PostContent from "@/components/blog/blog-detail/post-content";
 import { getPostData, getPostsFiles } from "@/lib/posts-util";
 import { PostDataType } from "@/types/post";
 import Markdown from "@/components/shared/markdown";
+import { getAllFrontMatters, getMdxBySlug } from "@/lib/mdx";
+import { IFrontmatter } from "@/types/frontmatter";
+import { useMemo } from "react";
+import { components } from "@/components/shared/mdx-components";
+import PostContentWrapper from "@/components/shared/post-content-wrapper";
 
 interface IPostDetailPageProps {
   post: PostDataType;
@@ -15,38 +20,49 @@ interface IParams extends ParsedUrlQuery {
   slug: string;
 }
 
-const PostDetailPage = ({ post }: IPostDetailPageProps) => {
+type Post = {
+  frontmatter: IFrontmatter;
+  code: string;
+};
+
+const PostDetailPage = ({
+  post: { code, frontmatter },
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>{post.title}</title>
         <meta name="description" content={post.description} />
-      </Head>
-      {/* <PostContent post={post} /> */}
-      <Markdown markdown={post} />
+      </Head> */}
+      <PostContentWrapper>
+        <Component components={components} />
+      </PostContentWrapper>
     </>
   );
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as IParams;
-  const postData = getPostData(slug);
-
+  const { code, frontmatter } = await getMdxBySlug(slug);
   return {
     props: {
-      post: postData,
+      post: {
+        code,
+        frontmatter,
+      } as Post,
     },
-    revalidate: 600,
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const postFileNames = getPostsFiles();
-
-  const slugs = postFileNames.map((fileName) => fileName.replace(/\.md$/, ""));
-
+  const posts = await getAllFrontMatters();
   return {
-    paths: slugs.map((slug) => ({ params: { slug } })),
+    paths: posts.map((post) => ({
+      params: {
+        slug: post.slug,
+      },
+    })),
     fallback: false,
   };
 };

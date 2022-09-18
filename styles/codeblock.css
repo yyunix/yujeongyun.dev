@@ -1,0 +1,88 @@
+pre {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+:not(pre) > code {
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.2rem;
+  white-space: normal;
+  background-color:  #f3f4f6;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #94a3b8;
+}
+
+.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.symbol,
+.token.deleted,
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted,
+.token.keyword ,
+.token.constant,
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #cbd5e1;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name,
+.token.tag,
+.token.regex,
+.token.important {
+  color: #f472b6;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.highlight-line {
+  cursor: text;
+  font-size: 0.9rem;
+  padding: 0 1rem;
+  color: #7dd3fc;
+}
+
+.highlight-line:first-child {
+  margin-top: 1rem;
+}
+
+.highlight-line:last-child {
+  margin-bottom: 1rem;
+}
+
+.code-filename {
+  padding: 1rem;
+  background-color: #e0f2fe;
+}

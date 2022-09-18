@@ -10,9 +10,9 @@ const postsDirectory = path.join(process.cwd(), "content/posts");
  */
 export function getPostData(postId: string): PostDataType {
   // Remove file extension from postId
-  const postSlug = postId.replace(/\.md$/, "");
+  const postSlug = postId.replace(/\.mdx$/, "");
 
-  const filePath = path.join(postsDirectory, `${postSlug}.md`);
+  const filePath = path.join(postsDirectory, `${postSlug}.mdx`);
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
 

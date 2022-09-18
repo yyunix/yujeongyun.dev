@@ -1,4 +1,16 @@
 /** @type {import('tailwindcss').Config} */
+const disabledCss = {
+  "code::before": false,
+  "code::after": false,
+  "blockquote p:first-of-type::before": false,
+  "blockquote p:last-of-type::after": false,
+  pre: false,
+  code: false,
+  "pre code": false,
+  "code::before": false,
+  "code::after": false,
+};
+
 module.exports = {
   darkMode: "class",
   purge: {
@@ -15,6 +27,8 @@ module.exports = {
   theme: {
     extend: {
       typography: (theme) => ({
+        base: { css: disabledCss },
+        sm: { css: disabledCss },
         dark: {
           css: {
             color: theme("colors.gray.400"),
