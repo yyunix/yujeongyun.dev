@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionText from "./section-text";
 import SectionTitle from "./section-title";
 
 const Intro = () => {
@@ -17,7 +18,7 @@ const Intro = () => {
       </h1>
       <section className="mb-8">
         <SectionTitle>About me</SectionTitle>
-        <p className="mb-4">
+        <SectionText>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero tempore,
           distinctio accusantium nam incidunt repellendus iste facilis inventore
           est fugit, perferendis ipsa quos totam in asperiores fuga consequatur
@@ -29,8 +30,8 @@ const Intro = () => {
           voluptas numquam magni ullam ut labore consectetur quisquam voluptatum
           nobis placeat in dolorum ducimus delectus accusamus deleniti vero
           suscipit corporis nihil!
-        </p>
-        <p>
+        </SectionText>
+        <SectionText>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero tempore,
           distinctio accusantium nam incidunt repellendus iste facilis inventore
           est fugit, perferendis ipsa quos totam in asperiores fuga consequatur
@@ -42,13 +43,13 @@ const Intro = () => {
           voluptas numquam magni ullam ut labore consectetur quisquam voluptatum
           nobis placeat in dolorum ducimus delectus accusamus deleniti vero
           suscipit corporis nihil!
-        </p>
+        </SectionText>
       </section>
       <section className="mb-8">
         <SectionTitle>Get in touch</SectionTitle>
-        <p>
+        <SectionText>
           <a href="">Github</a> or yyunix[at]gmail.com
-        </p>
+        </SectionText>
       </section>
     </>
   );

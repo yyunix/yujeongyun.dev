@@ -5,6 +5,7 @@ import Head from "next/head";
 import PostContent from "@/components/blog/blog-detail/post-content";
 import { getPostData, getPostsFiles } from "@/lib/posts-util";
 import { PostDataType } from "@/types/post";
+import Markdown from "@/components/shared/markdown";
 
 interface IPostDetailPageProps {
   post: PostDataType;
@@ -21,7 +22,8 @@ const PostDetailPage = ({ post }: IPostDetailPageProps) => {
         <title>{post.title}</title>
         <meta name="description" content={post.description} />
       </Head>
-      <PostContent post={post} />
+      {/* <PostContent post={post} /> */}
+      <Markdown markdown={post} />
     </>
   );
 };

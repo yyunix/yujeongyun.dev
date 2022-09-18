@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import ChevronLeftIcon from "@/assets/chevron-left.svg";
+import ArrowLeftIcon from "@/assets/arrow-left.svg";
 
 const BackButton = () => {
   const router = useRouter();
@@ -10,8 +10,8 @@ const BackButton = () => {
       onClick={() => router.back()}
       className="flex items-center gap-2 mb-10"
     >
-      <ChevronLeftIcon className="h-4 w-4" />
-      Go back
+      <ArrowLeftIcon className="h-4 w-4" />
+      <span className="text-sm font-semibold">Go back</span>
     </button>
   );
 };

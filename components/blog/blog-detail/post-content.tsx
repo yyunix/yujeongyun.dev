@@ -2,7 +2,8 @@ import Image from "next/image";
 import { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import {} from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { PostDataType } from "@/types/post";
 import PostHeader from "./post-header";
@@ -14,7 +15,26 @@ interface IPostContentProps {
 }
 
 const PostContent = ({ post }: IPostContentProps) => {
-  const imagePath = `/images/blog/${post.slug}/${post.image}`;
+  const styleMarkdown = {
+    ".codeStyle, pre, code, code span": {
+      // Your SyntaxHighlighter override styles here
+    },
+    code: {
+      background: "trasparent",
+    },
+    "pre code": {
+      // Your code-block styles here
+    },
+    "h3 code": {
+      color: "inherit",
+    },
+    "span.linenumber": {
+      display: "none !important",
+    },
+    '[data="highlight"]': {
+      // Your custom line highlight styles here
+    },
+  };
 
   const markdownComponents = {
     p: ({ node, children }: { children?: ReactNode; node?: any }) => {
@@ -49,9 +69,11 @@ const PostContent = ({ post }: IPostContentProps) => {
 
       return (
         <SyntaxHighlighter
-          style={vscDarkPlus}
+          style={dark}
           language={language}
           children={children}
+          PreTag="div"
+          showLineNumbers={true}
         />
       );
     },

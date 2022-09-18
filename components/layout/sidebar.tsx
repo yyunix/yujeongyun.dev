@@ -31,7 +31,7 @@ const Sidebar = ({ isOpen, closeSidebar }: ISidebarProps) => {
         <button className="py-4 px-6 flex ml-auto" onClick={closeSidebar}>
           <CloseIcon className="h-6 w-6" />
         </button>
-        <Menu mobile />
+        <Menu mobile closeSidebar={closeSidebar} />
       </nav>
     </aside>
   );

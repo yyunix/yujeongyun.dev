@@ -17,7 +17,15 @@ module.exports = {
       typography: (theme) => ({
         dark: {
           css: {
-            color: "white",
+            color: theme("colors.gray.400"),
+            h2: { color: theme("colors.gray.200") },
+            a: { color: theme("colors.blue.400") },
+          },
+        },
+        light: {
+          css: {
+            color: theme("colors.gray.800"),
+            a: { color: theme("colors.blue.600") },
           },
         },
       }),

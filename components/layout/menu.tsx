@@ -10,9 +10,10 @@ const MENU = [
 
 interface IMenuProps {
   mobile?: boolean;
+  closeSidebar: () => void;
 }
 
-const Menu = ({ mobile = false }: IMenuProps) => {
+const Menu = ({ mobile = false, closeSidebar }: IMenuProps) => {
   const router = useRouter();
 
   return (
@@ -37,12 +38,13 @@ const Menu = ({ mobile = false }: IMenuProps) => {
               className={`${
                 mobile
                   ? "w-full"
-                  : "hover:text-indigo-500 dark:hover:text-indigo-400"
+                  : "hover:text-blue-500 dark:hover:text-blue-400"
               } ${
                 router.pathname === menu.href
-                  ? "text-indigo-500 dark:text-indigo-300"
+                  ? "text-blue-500 dark:text-blue-400"
                   : ""
               }`}
+              onClick={closeSidebar}
             >
               {menu.label}
             </a>
