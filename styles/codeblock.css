@@ -1,23 +1,54 @@
+code,
 pre {
-  overflow-x: auto;
+  background-color: var(--color-code-background)!important;
+  color: var(--color-code-text);
+}
+
+pre {
+  font-size: 0.875rem;
   border-radius: 0.75rem;
-  display:flex;
-  flex-direction: column;
-  width: 100%;
+  margin-bottom: 2rem;
+  position: relative;
+  min-width: 100%;
+  width: 300px;
+  overflow: hidden;
+}
+
+code {
+  min-width: 100%;
+  width:100%;
+  float: left;
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+code .main-code {
+  float: left;
+  padding-bottom: 1rem;
 }
 
 :not(pre) > code {
-  padding: 0.1rem 0.2rem;
+  padding: 0.2rem 0.3rem;
   border-radius: 0.2rem;
   white-space: normal;
-  background-color:  #f3f4f6;
+  min-width:none;
+  width:fit-content;
+  float:none;
+}
+
+.token.parameter {
+  color: var(--color-code-text);
 }
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #94a3b8;
+  color: var(--color-code-comment);
+}
+
+.token.punctuation {
+  color: var(--color-code-punctuation);
 }
 
 .namespace {
@@ -25,33 +56,50 @@ pre {
 }
 
 .token.property,
+.token.tag,
+.token.constant,
 .token.symbol,
-.token.deleted,
+.token.deleted {
+  color: var(--color-code-const);
+}
+
+.token.boolean,
+.token.number {
+  color: var(--color-code-bool);
+}
+
 .token.selector,
 .token.attr-name,
 .token.string,
 .token.char,
 .token.builtin,
-.token.inserted,
-.token.keyword ,
-.token.constant,
+.token.inserted {
+  color: var(--color-code-string);
+}
+
 .token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-  color: #cbd5e1;
+  color: var(--color-code-var);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.function,
-.token.class-name,
-.token.tag,
+.token.class-name {
+  color: var(--color-code-func);
+}
+
+.token.keyword {
+  color: var(--color-code-keyword);
+}
+
 .token.regex,
 .token.important {
-  color: #f472b6;
+  color: var(--color-code-regex);
 }
 
 .token.important,
@@ -68,21 +116,23 @@ pre {
 }
 
 .highlight-line {
+  position: relative;
+  padding: 0 1.5rem;
   cursor: text;
-  font-size: 0.9rem;
-  padding: 0 1rem;
-  color: #7dd3fc;
 }
 
 .highlight-line:first-child {
-  margin-top: 1rem;
-}
-
-.highlight-line:last-child {
-  margin-bottom: 1rem;
+  margin-top: 0.5rem;
 }
 
 .code-filename {
-  padding: 1rem;
-  background-color: #e0f2fe;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--color-code-background-file);
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  pre,.code-filename {
+    font-size: 1rem;
+  }
 }

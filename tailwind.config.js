@@ -11,6 +11,8 @@ const disabledCss = {
   "code::after": false,
 };
 
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 module.exports = {
   darkMode: "class",
   purge: {
@@ -25,6 +27,10 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ["Inter", ...fontFamily.sans],
+      mono: ["Fira Code", ...fontFamily.mono],
+    },
     extend: {
       typography: (theme) => ({
         base: { css: disabledCss },
@@ -32,14 +38,15 @@ module.exports = {
         dark: {
           css: {
             color: theme("colors.gray.400"),
+            h1: { color: theme("colors.gray.200") },
             h2: { color: theme("colors.gray.200") },
-            a: { color: theme("colors.blue.400") },
+            a: { color: theme("colors.sky.400") },
           },
         },
         light: {
           css: {
             color: theme("colors.gray.800"),
-            a: { color: theme("colors.blue.600") },
+            a: { color: theme("colors.sky.500") },
           },
         },
       }),

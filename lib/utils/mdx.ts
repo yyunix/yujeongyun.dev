@@ -2,18 +2,19 @@ import fs from "fs";
 import path from "path";
 import { globby } from "globby";
 import { bundleMDX } from "mdx-bundler";
-import { IFrontmatter } from "@/types/frontmatter";
-import { rehypeMetaAttribute } from "./rehype-meta-attribute";
-import { rehypeHighlightCode } from "./rehype-highlight-code";
 
-const MDX_PATH = "content/posts";
+import { rehypeMetaAttribute } from "@/lib/mdx-bundler/rehype-meta-attribute";
+import { rehypeHighlightCode } from "@/lib/mdx-bundler/rehype-highlight-code";
 
-async function getMdxBySlug(slug: string) {
-  return getMdxByPath(path.join(MDX_PATH, `${slug}.mdx`));
+const MDX_PATH = "content/blog";
+
+async function getMdxBySlug<T>(mdxPath: string, slug: string) {
+  return getMdxByPath<T>(path.join(mdxPath, `${slug}.mdx`));
 }
 
-async function getMdxByPath(mdxPath: string) {
+async function getMdxByPath<T>(mdxPath: string) {
   const slug = path.basename(mdxPath).replace(path.extname(mdxPath), "");
+
   const source = fs.readFileSync(path.join(process.cwd(), mdxPath), "utf8");
 
   const { code, frontmatter } = await bundleMDX({
@@ -32,25 +33,27 @@ async function getMdxByPath(mdxPath: string) {
   return {
     code,
     frontmatter: {
-      ...(frontmatter as IFrontmatter),
+      ...(frontmatter as T),
       slug,
-    } as IFrontmatter,
+    },
   };
 }
 
-async function getAllFrontMatters(): Promise<IFrontmatter[]> {
-  const paths = await globby([`${MDX_PATH}/**/*.mdx`]);
+async function getAllFrontMatters<T>(mdxPath: string): Promise<T[]> {
+  const paths = await globby([`${mdxPath}/**/*.mdx`]);
   const matters = await Promise.all(
     paths.map(async (filePath) => {
       const source = fs.readFileSync(filePath, "utf8");
-      const { code, frontmatter } = await bundleMDX({ source });
+      const { frontmatter } = await bundleMDX({ source });
 
       return {
-        ...(frontmatter as IFrontmatter),
+        ...(frontmatter as T),
         slug: path.basename(filePath).replace(".mdx", ""),
+        date: frontmatter.date,
       };
     })
   );
+
   return matters
     .filter(Boolean)
     .filter((post) => post.date)

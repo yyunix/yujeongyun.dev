@@ -1,13 +1,7 @@
+import { BlogFrontmatter } from "@/types/blog";
 import Link from "next/link";
 
-interface IPostItemProps {
-  title: string;
-  description: string;
-  slug: string;
-  date: Date;
-}
-
-const PostItem = ({ title, slug, description, date }: IPostItemProps) => {
+const BlogItem = ({ title, slug, description, date }: BlogFrontmatter) => {
   const linkPath = `/blog/${slug}`;
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
     month: "short",
@@ -25,7 +19,6 @@ const PostItem = ({ title, slug, description, date }: IPostItemProps) => {
             <h3 className="font-bold text-transparent  bg-clip-text bg-gradient-to-r from-blue-400 to-purple-700 underline decoration-2 decoration-blue-400 dark:decoration-blue-600">
               {title}
             </h3>
-
             <p className="text-gray-700 dark:text-gray-300">{description}</p>
           </div>
         </a>
@@ -34,4 +27,4 @@ const PostItem = ({ title, slug, description, date }: IPostItemProps) => {
   );
 };
 
-export default PostItem;
+export default BlogItem;

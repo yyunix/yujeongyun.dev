@@ -1,33 +1,34 @@
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
-import AllBlogPosts from "@/components/blog/all-posts";
-import { PostDataType } from "@/types/post";
-import { getAllPosts, getAllPostsCategories } from "@/lib/posts-util";
+import { getAllFrontMatters } from "@/lib/utils/mdx";
+import { BlogFrontmatter, AllBlogFrontmatter } from "@/types/blog";
+import AllBlogPosts from "@/components/blog/all-blog";
 
-interface AllBlogPostsPageProps {
-  posts: PostDataType[];
-}
+const MDX_PATH = "content/blog";
 
-const AllBlogPostsPage = ({ posts }: AllBlogPostsPageProps) => {
+const AllBlogPostsPage = ({
+  blogPosts,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
       <Head>
         <title>Yujeong&apos;s Digital Space | Software Developer</title>
         <meta name="description" content="JavaScript blog" />
       </Head>
-      <AllBlogPosts posts={posts} />
+      <AllBlogPosts blogPosts={blogPosts} />
     </div>
   );
 };
 
-export function getStaticProps() {
-  const allPosts = getAllPosts();
+export const getStaticProps: GetStaticProps<AllBlogFrontmatter> = async () => {
+  const allBlog = await getAllFrontMatters<BlogFrontmatter>(MDX_PATH);
 
   return {
     props: {
-      posts: allPosts,
+      blogPosts: allBlog,
     },
   };
-}
+};
 
 export default AllBlogPostsPage;

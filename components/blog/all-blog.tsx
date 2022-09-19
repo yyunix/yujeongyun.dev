@@ -1,21 +1,17 @@
-import { PostDataType } from "@/types/post";
+import { AllBlogFrontmatter } from "@/types/blog";
 import PostsEmpty from "../shared/posts-empty";
 import PostsHeader from "../shared/posts-header";
-import PostsGrid from "./posts-grid";
+import BlogGrid from "./blog-grid";
 
-interface IAllBlogPostsProps {
-  posts: PostDataType[];
-}
-
-const AllBlogPosts = ({ posts }: IAllBlogPostsProps) => {
+const AllBlogPosts = ({ blogPosts }: AllBlogFrontmatter) => {
   return (
     <>
       <PostsHeader
         title="✍🏼 Blog"
         description="Sometimes I write about stuff about 'How to do... in JavaScript'"
       />
-      {posts.length ? (
-        <PostsGrid posts={posts} />
+      {blogPosts.length ? (
+        <BlogGrid blogPosts={blogPosts} />
       ) : (
         <PostsEmpty title="blog articles" />
       )}
