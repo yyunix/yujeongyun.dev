@@ -1,10 +1,7 @@
-import { BookDataType } from "@/types/book";
+import { AllBooksFrontmatter } from "@/types/book";
 import BookItem from "./book-item";
 
-interface IBooksGridProps {
-  books: BookDataType[];
-}
-const BooksGrid = ({ books }: IBooksGridProps) => {
+const BooksGrid = ({ books }: AllBooksFrontmatter) => {
   return (
     <ul>
       {books.map((book) => (

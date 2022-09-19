@@ -1,36 +1,34 @@
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
-import { BookDataType } from "@/types/book";
-import { getAllBookCategories, getAllBooks } from "@/lib/books-util";
+import { AllBooksFrontmatter, BookFrontmatter } from "@/types/book";
+import { getAllFrontMatters } from "@/lib/utils/mdx";
 import AllBooks from "@/components/books/all-books";
 
-interface IAllBooksPageProps {
-  books: BookDataType[];
-  categories: string[];
-}
+const MDX_PATH = "content/books";
 
-const AllBooksPage = ({ books, categories }: IAllBooksPageProps) => {
+const AllBooksPage = ({
+  books,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
       <Head>
         <title>Yujeong&apos;s Digital Space | Software Developer</title>
         <meta name="description" content="JavaScript blog" />
       </Head>
-      <AllBooks books={books} categories={categories} />
+      <AllBooks books={books} />
     </div>
   );
 };
 
-export function getStaticProps() {
-  const allBooks = getAllBooks();
-  const bookCategories = getAllBookCategories();
+export const getStaticProps: GetStaticProps<AllBooksFrontmatter> = async () => {
+  const allBooks = await getAllFrontMatters<BookFrontmatter>(MDX_PATH);
 
   return {
     props: {
       books: allBooks,
-      categories: bookCategories,
     },
   };
-}
+};
 
 export default AllBooksPage;

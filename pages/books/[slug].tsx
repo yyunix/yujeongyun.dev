@@ -1,50 +1,79 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { ParsedUrlQuery } from "querystring";
-
-import { getBookData, getBooksFiles } from "@/lib/books-util";
-import { BookDataType } from "@/types/book";
+import Image from "next/image";
 import Head from "next/head";
-import BookContent from "@/components/books/book-detail/book-content";
 
-interface IBookDetailPageProps {
-  book: BookDataType;
-}
+import { BookFrontmatter } from "@/types/book";
+import { getAllFrontMatters, getMdxBySlug } from "@/lib/utils/mdx";
+import { useMemo } from "react";
+import { getMDXComponent } from "mdx-bundler/client";
+import PostContentWrapper from "@/components/shared/post-content-wrapper";
 
-interface IParams extends ParsedUrlQuery {
+import BookHeader from "@/components/books/book-header";
+
+interface Params extends ParsedUrlQuery {
   slug: string;
 }
 
-const BookDetailPage = ({ book }: IBookDetailPageProps) => {
+interface Book {
+  frontmatter: BookFrontmatter;
+  code: string;
+}
+
+const MDX_PATH = "content/books";
+
+const BookDetailPage = ({
+  book: { code, frontmatter },
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { title, description, image, author, rating } = frontmatter;
+
+  const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <div>
       <Head>
-        <title>{book.title}</title>
-        <meta name="description" content={book.description} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
       </Head>
-      <BookContent book={book} />
+      <PostContentWrapper>
+        <BookHeader
+          title={title}
+          image={image}
+          author={author}
+          rating={rating}
+        />
+        <Component components={{ Image }} />
+      </PostContentWrapper>
     </div>
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params as IParams;
-  const bookData = getBookData(slug);
+export const getStaticProps: GetStaticProps<{ book: Book }> = async (
+  context
+) => {
+  const { slug } = context.params as Params;
+  const { code, frontmatter } = await getMdxBySlug<BookFrontmatter>(
+    MDX_PATH,
+    slug
+  );
 
   return {
     props: {
-      book: bookData,
+      book: { code, frontmatter },
+      revalidate: 600,
     },
-    revalidate: 600,
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const bookFileNames = getBooksFiles();
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
+  const books = await getAllFrontMatters<BookFrontmatter>(MDX_PATH);
 
-  const slugs = bookFileNames.map((fileName) => fileName.replace(/\.md$/, ""));
-
+  const paths = books.map((book) => ({
+    params: {
+      slug: book.slug,
+    },
+  }));
   return {
-    paths: slugs.map((slug) => ({ params: { slug } })),
+    paths,
     fallback: false,
   };
 };

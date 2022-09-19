@@ -5,7 +5,7 @@ interface IPostHeaderProps {
   date: Date;
 }
 
-const MdxFrontmatter = ({ title, date }: IPostHeaderProps) => {
+const BlogHeader = ({ title, date }: IPostHeaderProps) => {
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
@@ -20,4 +20,4 @@ const MdxFrontmatter = ({ title, date }: IPostHeaderProps) => {
   );
 };
 
-export default MdxFrontmatter;
+export default BlogHeader;

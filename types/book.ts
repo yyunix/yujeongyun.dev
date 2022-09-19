@@ -1,11 +1,13 @@
-export interface BookDataType {
+export interface BookFrontmatter {
   slug: string;
-  content: string;
   date: Date;
   image: string;
   title: string;
   description: string;
   author: string;
-  category: string;
   rating: number;
+}
+
+export interface AllBooksFrontmatter {
+  books: BookFrontmatter[];
 }

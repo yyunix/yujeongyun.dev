@@ -8,7 +8,7 @@ import { getAllFrontMatters, getMdxBySlug } from "@/lib/utils/mdx";
 import { BlogFrontmatter } from "@/types/blog";
 import { MdxComponents } from "@/components/shared/mdx-components";
 import PostContentWrapper from "@/components/shared/post-content-wrapper";
-import MdxFrontmatter from "@/components/shared/mdx-frontmatter";
+import BlogHeader from "@/components/blog/blog-header";
 import BackButton from "@/components/shared/back-button";
 
 interface Params extends ParsedUrlQuery {
@@ -25,9 +25,9 @@ const MDX_PATH = "content/blog";
 const BlogDetailPage = ({
   blog: { code, frontmatter },
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const Component = useMemo(() => getMDXComponent(code), [code]);
-
   const { title, date, description } = frontmatter;
+
+  const Component = useMemo(() => getMDXComponent(code), [code]);
 
   return (
     <>
@@ -37,7 +37,7 @@ const BlogDetailPage = ({
       </Head>
       <BackButton />
       <PostContentWrapper>
-        <MdxFrontmatter title={title} date={date} />
+        <BlogHeader title={title} date={date} />
         <Component components={MdxComponents} />
       </PostContentWrapper>
     </>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-interface IBookItemProps {
+interface BookItemProps {
   title: string;
   description: string;
   slug: string;
@@ -15,7 +15,7 @@ const BookItem = ({
   author,
   slug,
   description,
-}: IBookItemProps) => {
+}: BookItemProps) => {
   const linkPath = `/books/${slug}`;
   const imagePath = `/images/books/${image}`;
 
