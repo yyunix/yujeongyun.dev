@@ -1,7 +1,7 @@
 code,
 pre {
   background-color: var(--color-code-background)!important;
-  color: var(--color-code-text);
+  color: var(--color-code-main);
 }
 
 pre {
@@ -9,8 +9,6 @@ pre {
   border-radius: 0.75rem;
   margin-bottom: 2rem;
   position: relative;
-  min-width: 100%;
-  width: 300px;
   overflow: hidden;
 }
 
@@ -25,6 +23,7 @@ code {
 code .main-code {
   float: left;
   padding-bottom: 1rem;
+  min-width: 100%;
 }
 
 :not(pre) > code {
@@ -37,18 +36,21 @@ code .main-code {
 }
 
 .token.parameter {
-  color: var(--color-code-text);
+  color: var(--color-code-main);
 }
 
 .token.comment,
 .token.prolog,
 .token.doctype,
-.token.cdata {
-  color: var(--color-code-comment);
-}
-
-.token.punctuation {
-  color: var(--color-code-punctuation);
+.token.cdata,
+.token.punctuation,
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable   {
+  color: var(--color-code-subtle);
 }
 
 .namespace {
@@ -59,42 +61,23 @@ code .main-code {
 .token.tag,
 .token.constant,
 .token.symbol,
-.token.deleted {
-  color: var(--color-code-const);
+.token.deleted,.token.keyword  {
+  color: var(--color-code-secondary);
 }
 
 .token.boolean,
-.token.number {
-  color: var(--color-code-bool);
-}
-
+.token.number,
 .token.selector,
 .token.attr-name,
 .token.string,
 .token.char,
 .token.builtin,
-.token.inserted {
-  color: var(--color-code-string);
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string,
-.token.variable {
-  color: var(--color-code-var);
-}
-
+.token.inserted,
 .token.atrule,
 .token.attr-value,
 .token.function,
 .token.class-name {
-  color: var(--color-code-func);
-}
-
-.token.keyword {
-  color: var(--color-code-keyword);
+  color: var(--color-code-tertiary);
 }
 
 .token.regex,

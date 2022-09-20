@@ -11,13 +11,13 @@ const BlogItem = ({ title, slug, description, date }: BlogFrontmatter) => {
   return (
     <li>
       <Link href={linkPath}>
-        <a className="px-7 md:px-5 py-4 -mx-7 md:-mx-5 hover:bg-gray-100 dark:hover:bg-gray-800 flex flex-col md:flex-row gap-2 md:gap-10 rounded-lg">
-          <time className="text-sm md:text-base text-gray-500 dark:text-gray-400">
+        <a className="px-7 md:px-5 py-4 -mx-7 md:-mx-5 hover:bg-back-secondary flex flex-col md:flex-row gap-2 md:gap-10 rounded-lg">
+          <time className="text-sm md:text-base text-fore-subtle">
             {formattedDate}
           </time>
           <div>
             <h3 className="item-title">{title}</h3>
-            <p className="text-gray-700 dark:text-gray-300">{description}</p>
+            <p className="text-fore-secondary">{description}</p>
           </div>
         </a>
       </Link>

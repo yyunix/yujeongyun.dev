@@ -1,11 +1,10 @@
 import Image from "next/image";
-import SectionText from "./section-text";
-import SectionTitle from "./section-title";
+import PostContentWrapper from "../shared/post-content-wrapper";
 
 const Intro = () => {
   return (
     <>
-      <div className="w-20 md:w-fit inline-flex bg-gray-200 dark:bg-gray-800 rounded-full">
+      <div className="w-20 md:w-fit inline-flex bg-back-secondary rounded-full mb-4">
         <Image
           src="/images/site/dinosaur.png"
           alt="Dinosaur"
@@ -13,44 +12,50 @@ const Intro = () => {
           height={100}
         />
       </div>
-      <h1 className="mt-4 mb-8 text-2xl md:text-4xl font-bold">
-        Hi, I&apos;m Yujeong.
-      </h1>
-      <section className="mb-8">
-        <SectionTitle>About me</SectionTitle>
-        <SectionText>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero tempore,
-          distinctio accusantium nam incidunt repellendus iste facilis inventore
-          est fugit, perferendis ipsa quos totam in asperiores fuga consequatur
-          quis sed deserunt et modi laborum similique reiciendis delectus! Nihil
-          ullam qui debitis quo quasi velit incidunt blanditiis rem, sit natus
-          amet quos magni tempore harum fugiat nostrum sunt commodi voluptate
-          laudantium pariatur? Est rem animi, ducimus maxime voluptates delectus
-          at! Ut eligendi optio magnam rerum numquam ab. Facere sint, enim
-          voluptas numquam magni ullam ut labore consectetur quisquam voluptatum
-          nobis placeat in dolorum ducimus delectus accusamus deleniti vero
-          suscipit corporis nihil!
-        </SectionText>
-        <SectionText>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero tempore,
-          distinctio accusantium nam incidunt repellendus iste facilis inventore
-          est fugit, perferendis ipsa quos totam in asperiores fuga consequatur
-          quis sed deserunt et modi laborum similique reiciendis delectus! Nihil
-          ullam qui debitis quo quasi velit incidunt blanditiis rem, sit natus
-          amet quos magni tempore harum fugiat nostrum sunt commodi voluptate
-          laudantium pariatur? Est rem animi, ducimus maxime voluptates delectus
-          at! Ut eligendi optio magnam rerum numquam ab. Facere sint, enim
-          voluptas numquam magni ullam ut labore consectetur quisquam voluptatum
-          nobis placeat in dolorum ducimus delectus accusamus deleniti vero
-          suscipit corporis nihil!
-        </SectionText>
-      </section>
-      <section className="mb-8">
-        <SectionTitle>Get in touch</SectionTitle>
-        <SectionText>
-          <a href="">Github</a> or yyunix[at]gmail.com
-        </SectionText>
-      </section>
+      <PostContentWrapper>
+        <h1 className="">Hi, I&apos;m Yujeong.</h1>
+
+        <section>
+          <h3>About me</h3>
+          <p>
+            I&apos;m a software engineer living in Toronto, Ontario. My goal is
+            to write useful apps and continue creating beautifull websites while
+            expanding my knowledge in software engineering.
+          </p>
+          <p>
+            When I&apos;m not programming, you&apos;ll find me walking my dogs
+            or hiking in the woods. On weekends, you can catch me at a
+            Vietnamese restaurant enjoying Bánh mì and Bún bò huế.
+          </p>
+        </section>
+        <section>
+          <h3>What&apos;s in my toolbox?</h3>
+          <ul>
+            <li>JavaScript, Typescript </li>
+            <li>React, NextJS, Gatsby, Context API, Redux</li>
+            <li>Vue, Vuex </li>
+            <li>CSS, SCSS, Styled-Components, TailwindCSS </li>
+            <li>Framer motion </li>
+            <li>Node, Express </li>
+            <li>HTML </li>
+            <li>SQL </li>
+            <li>REST API, GraphQL </li>
+            <li>Jest, React Testing Library </li>
+            <li>Git, JIRA </li>
+            <li>Storybook </li>
+            <li>Hasura </li>
+            <li>Headless CMS (Wordpress, Strapi)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Get in touch</h3>
+          <p>
+            <a href="https://github.com/yyunix">Github</a> or
+            yyunix[at]gmail.com
+          </p>
+        </section>
+      </PostContentWrapper>
     </>
   );
 };

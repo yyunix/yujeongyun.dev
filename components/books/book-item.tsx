@@ -28,10 +28,8 @@ const BookItem = ({
           </div>
           <div>
             <h3 className="item-title">{title}</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-              by {author}
-            </p>
-            <p className="text-gray-700 dark:text-gray-300">{description}</p>
+            <p className="text-sm text-fore-subtle mb-2">by {author}</p>
+            <p className="text-fore-secondary">{description}</p>
           </div>
         </a>
       </Link>

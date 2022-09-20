@@ -11,7 +11,7 @@ const BookHeader = ({ title, image, author, rating }: BookHeaderProps) => {
   const imagePath = `/images/books/${image}`;
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 pb-8 sm:pb-0 border-b border-gray-300 dark:border-gray-800 sm:border-none">
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 pb-8 sm:pb-0 border-b border-faint sm:border-none">
       <div className="shrink-0">
         <Image src={imagePath} alt={title} width={170} height={200} />
       </div>

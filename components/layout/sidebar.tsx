@@ -25,7 +25,7 @@ const Sidebar = ({ isOpen, closeSidebar }: ISidebarProps) => {
       onClick={onClickOutside}
     >
       <nav
-        className="absolute top-0 right-0 bottom-0 w-9/12 bg-white dark:bg-gray-900 drop-shadow-2xl z-50 transition-all"
+        className="absolute top-0 right-0 bottom-0 w-9/12 bg-back-primary drop-shadow-2xl z-50 transition-all"
         ref={navRef}
       >
         <button className="py-4 px-6 flex ml-auto" onClick={closeSidebar}>

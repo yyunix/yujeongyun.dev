@@ -11,6 +11,8 @@ We cannot know the theme on the server, the values returned from `useTheme` will
 
 Solution is to make sure we only render our icon when the page is mounted on the client.
 
+[A Link! Click Me This is a Link](https://google.ca)
+
 ## Why would we then need NextJS?
 
 Because NextJS makes building React apps easier - especially React apps that should have server-side rendering (though it does way more than just take care of that).
@@ -27,51 +29,37 @@ In this article, we'll dive into the core concepts and features NextJS has to of
 
 For `generate-sitemap.js`, I included the script in the webpack section of `next.config.js` to invoke the function when running `npm run build`. The script will generate a `sitemap.xml` in the `public/` directory.
 
-```js fileName=toggle.jsx
-export const Toggle = () => {
-  const [isDark, setIsDark] = useDarkMode();
-
-  return (
-    <label>
-      <input
-        type="checkbox"
-        checked={isDark}
-        onChange={(e) => setIsDark(e.target.checked)}
-      />
-      Dark Mode
-    </label>
-  );
-};
-```
-
-```html
+```html fileName=index.html
 <html>
-  <body></body>
+  <body>
+    <header>Header</header>
+    <main>Content</main>
+    <footer>Footer</footer>
+  </body>
 </html>
 ```
 
 ```css fileName=index.css
-:root {
-  @apply .light;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+```
 
-.dark {
-  --color-bg-primary: #2d3748;
-  --color-bg-secondary: #283141;
-  --color-text-primary: #f7fafc;
-  --color-text-secondary: #e2e8f0;
-  --color-text-accent: #81e6d9;
+```jsx fileName=themeContext.jsx
+const getInitialTheme = (_) => {
+  if (typeof window !== "undefined" && window.localStorage) {
+  }
+
+  // If you want to use light theme as the default,
+  // return "light" instead
+  return "dark";
+};
+```
+
+```js
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
 }
-
-.light {
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #edf2f7;
-  --color-text-primary: #2d3748;
-  --color-text-secondary: #4a5568;
-  --color-text-accent: #2b6cb0;
-}
-
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
 ```

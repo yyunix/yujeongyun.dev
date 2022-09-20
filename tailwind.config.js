@@ -32,24 +32,22 @@ module.exports = {
       mono: ["Fira Code", ...fontFamily.mono],
     },
     extend: {
-      typography: (theme) => ({
+      colors: {
+        accent: "var(--color-accent)",
+        faint: "var(--color-faint)",
+        fore: {
+          primary: "var(--color-fore-primary)",
+          secondary: "var(--color-fore-secondary)",
+          subtle: "var(--color-fore-subtle)",
+        },
+        back: {
+          primary: "var(--color-back-primary)",
+          secondary: "var(--color-back-secondary)",
+        },
+      },
+      typography: () => ({
         base: { css: disabledCss },
         sm: { css: disabledCss },
-        dark: {
-          css: {
-            color: theme("colors.gray.400"),
-            h1: { color: theme("colors.gray.200") },
-            h2: { color: "var(--color-accent)" },
-            h3: { color: "var(--color-accent)" },
-            // a: { color: theme("colors.sky.400") },
-          },
-        },
-        light: {
-          css: {
-            color: theme("colors.gray.800"),
-            //  a: { color: theme("colors.sky.500") },
-          },
-        },
       }),
     },
   },

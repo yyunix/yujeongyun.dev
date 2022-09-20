@@ -8,12 +8,12 @@ const MENU = [
   { href: "/learning", label: "Learning" },
 ];
 
-interface IMenuProps {
+interface MenuProps {
   mobile?: boolean;
-  closeSidebar: () => void;
+  closeSidebar?: () => void;
 }
 
-const Menu = ({ mobile = false, closeSidebar }: IMenuProps) => {
+const Menu = ({ mobile = false, closeSidebar }: MenuProps) => {
   const router = useRouter();
 
   return (
@@ -27,22 +27,12 @@ const Menu = ({ mobile = false, closeSidebar }: IMenuProps) => {
       {MENU.map((menu) => (
         <li
           key={menu.label}
-          className={`${
-            mobile
-              ? "py-4 border-b border-gray-900/10 dark:border-gray-300/10 flex"
-              : ""
-          }`}
+          className={`${mobile ? "py-4 border-b border-faint flex" : ""}`}
         >
           <Link href={menu.href}>
             <a
-              className={`${
-                mobile
-                  ? "w-full"
-                  : "hover:text-blue-500 dark:hover:text-blue-400"
-              } ${
-                router.pathname === menu.href
-                  ? "text-blue-500 dark:text-blue-400"
-                  : ""
+              className={`${mobile ? "w-full" : "hover:text-accent"} ${
+                router.pathname === menu.href ? "text-accent" : ""
               }`}
               onClick={closeSidebar}
             >
