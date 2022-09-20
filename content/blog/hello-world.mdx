@@ -6,13 +6,10 @@ description: Blog post about hello world
 category: code
 ---
 
-NextJS is a **framework for ReactJS**.
+Odd svg error on the browser due to hydration mismatch.
+We cannot know the theme on the server, the values returned from `useTheme` will be `undefined` until mounted on the client side. This results in our theme icon not matching the actual current theme.
 
-Wait a second ... a "framework" for React? Isn't React itself already a framework for JavaScript?
-
-Well ... first of all, React is a "library" for JavaScript. That seems to be important for some people.
-
-Not for me, but still, there is a valid point: React already is a framework / library for JavaScript. So it's already an extra layer on top of JS.
+Solution is to make sure we only render our icon when the page is mounted on the client.
 
 ## Why would we then need NextJS?
 

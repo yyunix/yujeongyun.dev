@@ -39,14 +39,15 @@ module.exports = {
           css: {
             color: theme("colors.gray.400"),
             h1: { color: theme("colors.gray.200") },
-            h2: { color: theme("colors.gray.200") },
-            a: { color: theme("colors.sky.400") },
+            h2: { color: "var(--color-accent)" },
+            h3: { color: "var(--color-accent)" },
+            // a: { color: theme("colors.sky.400") },
           },
         },
         light: {
           css: {
             color: theme("colors.gray.800"),
-            a: { color: theme("colors.sky.500") },
+            //  a: { color: theme("colors.sky.500") },
           },
         },
       }),
