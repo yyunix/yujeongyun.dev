@@ -16,7 +16,7 @@ const Intro = () => {
         <h1 className="">Hi, I&apos;m Yujeong.</h1>
 
         <section>
-          <h3>About me</h3>
+          <h3>A quick intro</h3>
           <p>
             I&apos;m a software engineer living in Toronto, Ontario. My goal is
             to write useful apps and continue creating beautifull websites while

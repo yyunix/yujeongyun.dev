@@ -10,7 +10,22 @@ const AllBlogPosts = ({ blogPosts }: AllBlogFrontmatter) => {
       <PageTitle
         title="Blog"
         icon={<PencilIcon />}
-        description="Sometimes I write about stuff about 'How to do... in JavaScript'"
+        description={
+          <>
+            Here&apos;s my attempt at writing blog posts on my experience as a
+            software developer. This is a place where I solidify my learnings
+            and maybe help others at the same time. I generally write about
+            problems I encountered and how I solved them. I welcome critiques,
+            comments or suggestions. Should you have any, please contact me at{" "}
+            <a
+              href="mailto:yyunix36@gmil.acom"
+              className="hover:text-accent underline decoration-accent"
+            >
+              yyunix36[at]gmail.com
+            </a>
+            .
+          </>
+        }
       />
       {blogPosts.length ? (
         <BlogGrid blogPosts={blogPosts} />

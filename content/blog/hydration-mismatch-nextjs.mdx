@@ -1,0 +1,63 @@
+---
+title: Handling hydration mismatch error in Next.js
+date: "2022-09-20"
+description: What is hydration mismatch and how to resolve it?
+---
+
+While I was working on the theme toggler component for this portfolio website, I came across a warning message that indicated something was wrong with the svg file. The exact message was _"Warning: Prop `d` did not match. Server:..."_.
+
+![SVG warning message](/images/blog/hydration-mismatch-theme-toggler-svg-error.png)
+
+In addition to the warning message, the theme icon was not matching the actual current theme. Upon hours of research, I learnt that the error was not SVG related but a hydration mismatch.
+
+A **hydration mismatch** is when the content rendered in Node is not the same as the content rendered in the browser. Remember, Next.js pre-renders every page meaning that it generates HTML for each page in advance on the server side. You can prove the mismatch by console logging the state and comparing the value in the browser console and the terminal where the server is running.
+
+Here's a code snippet of my initial approach.
+
+```tsx fileName=theme-toggler.tsx
+import { useTheme } from "next-themes";
+
+const ThemeToggler = () => {
+  const { theme, setTheme } = useTheme();
+  console.log(theme);
+
+  return (
+    <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+      {isDark ? <SunIcon /> : <MoonIcon />}
+    </button>
+  );
+};
+```
+
+From the above code, the values returned from `theme` will be `undefined` on the server side because it does not know the value until the component is mounted on the client side. This results in a hydration mismatch.
+
+## The Fix
+
+A solution to this hydration mismatch is to **make sure we only render our icon when the page is mounted on the client**.
+
+```tsx fileName=theme-toggler.tsx
+const ThemeToggler = () => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  return (
+    <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+      {isDark ? <SunIcon /> : <MoonIcon />}
+    </button>
+  );
+};
+```
+
+And voilà 🥳! No more warning message and everything works as expected.
+
+## Take aways from this problem
+
+- When faced with a problem, `console.log` the main state and check both the browser and the server console.
+- Know what I'm working with. This is not a `create-react-app` but a Next.js app
+- Read the warning message carefully. Don't just copy and paste the message in Google 🤦🏻‍♀️. It almost always tells you what the problem is and how to look for a solution.
