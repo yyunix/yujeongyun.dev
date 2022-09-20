@@ -3,11 +3,10 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { getMDXComponent } from "mdx-bundler/client";
 import { ParsedUrlQuery } from "querystring";
-
 import { getAllFrontMatters, getMdxBySlug } from "@/lib/utils/mdx";
 import { BlogFrontmatter } from "@/types/blog";
 import { MdxComponents } from "@/components/shared/mdx-components";
-import PostContentWrapper from "@/components/shared/post-content-wrapper";
+import TextContentWrapper from "@/components/shared/text-content-wrapper";
 import BlogHeader from "@/components/blog/blog-header";
 import BackButton from "@/components/shared/back-button";
 
@@ -36,10 +35,10 @@ const BlogDetailPage = ({
         <meta name="description" content={description} />
       </Head>
       <BackButton />
-      <PostContentWrapper>
+      <TextContentWrapper>
         <BlogHeader title={title} date={date} />
         <Component components={MdxComponents} />
-      </PostContentWrapper>
+      </TextContentWrapper>
     </>
   );
 };

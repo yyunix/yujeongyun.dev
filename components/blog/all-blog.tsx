@@ -1,13 +1,15 @@
 import { AllBlogFrontmatter } from "@/types/blog";
+import PencilIcon from "@/assets/pencil.svg";
 import PostsEmpty from "../shared/posts-empty";
-import PostsHeader from "../shared/posts-header";
+import PageTitle from "../shared/page-title";
 import BlogGrid from "./blog-grid";
 
 const AllBlogPosts = ({ blogPosts }: AllBlogFrontmatter) => {
   return (
     <>
-      <PostsHeader
-        title="✍🏼 Blog"
+      <PageTitle
+        title="Blog"
+        icon={<PencilIcon />}
         description="Sometimes I write about stuff about 'How to do... in JavaScript'"
       />
       {blogPosts.length ? (

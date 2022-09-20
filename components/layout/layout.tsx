@@ -2,11 +2,11 @@ import { ReactNode, useState } from "react";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 
-interface ILayoutProps {
+interface LayoutProps {
   children: ReactNode;
 }
 
-const Layout = ({ children }: ILayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => setIsOpen(!isOpen);

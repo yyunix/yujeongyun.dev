@@ -8,7 +8,7 @@ const BackButton = () => {
     <button
       type="button"
       onClick={() => router.back()}
-      className="flex items-center gap-2 mb-10"
+      className="flex items-center gap-2 mb-10 hover:text-accent"
     >
       <ArrowLeftIcon className="h-4 w-4" />
       <span className="text-sm font-semibold">Go back</span>

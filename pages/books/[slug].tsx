@@ -1,14 +1,12 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { ParsedUrlQuery } from "querystring";
 import Image from "next/image";
 import Head from "next/head";
-
+import { useMemo } from "react";
+import { ParsedUrlQuery } from "querystring";
+import { getMDXComponent } from "mdx-bundler/client";
 import { BookFrontmatter } from "@/types/book";
 import { getAllFrontMatters, getMdxBySlug } from "@/lib/utils/mdx";
-import { useMemo } from "react";
-import { getMDXComponent } from "mdx-bundler/client";
-import PostContentWrapper from "@/components/shared/post-content-wrapper";
-
+import TextContentWrapper from "@/components/shared/text-content-wrapper";
 import BookHeader from "@/components/books/book-header";
 
 interface Params extends ParsedUrlQuery {
@@ -34,7 +32,7 @@ const BookDetailPage = ({
         <title>{title}</title>
         <meta name="description" content={description} />
       </Head>
-      <PostContentWrapper>
+      <TextContentWrapper>
         <BookHeader
           title={title}
           image={image}
@@ -42,7 +40,7 @@ const BookDetailPage = ({
           rating={rating}
         />
         <Component components={{ Image }} />
-      </PostContentWrapper>
+      </TextContentWrapper>
     </div>
   );
 };

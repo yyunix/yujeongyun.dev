@@ -2,12 +2,12 @@ import { MouseEvent, useRef } from "react";
 import Menu from "./menu";
 import CloseIcon from "@/assets/close.svg";
 
-interface ISidebarProps {
+interface SidebarProps {
   isOpen: boolean;
   closeSidebar: () => void;
 }
 
-const Sidebar = ({ isOpen, closeSidebar }: ISidebarProps) => {
+const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
   const navRef = useRef<HTMLElement>(null);
 
   const onClickOutside = (e: MouseEvent<HTMLLIElement>) => {

@@ -1,6 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-
 import { AllBooksFrontmatter, BookFrontmatter } from "@/types/book";
 import { getAllFrontMatters } from "@/lib/utils/mdx";
 import AllBooks from "@/components/books/all-books";

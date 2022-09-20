@@ -1,11 +1,8 @@
-import React from "react";
+import { BlogFrontmatter } from "@/types/blog";
 
-interface IPostHeaderProps {
-  title: string;
-  date: Date;
-}
+type BlogHeaderProps = Pick<BlogFrontmatter, "title" | "date">;
 
-const BlogHeader = ({ title, date }: IPostHeaderProps) => {
+const BlogHeader = ({ title, date }: BlogHeaderProps) => {
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
@@ -15,7 +12,7 @@ const BlogHeader = ({ title, date }: IPostHeaderProps) => {
   return (
     <div>
       <time className="text-sm">{formattedDate}</time>
-      <h1 className="">{title}</h1>
+      <h1>{title}</h1>
     </div>
   );
 };

@@ -1,11 +1,7 @@
+import { BookFrontmatter } from "@/types/book";
 import Image from "next/image";
 
-interface BookHeaderProps {
-  title: string;
-  image: string;
-  author: string;
-  rating: number;
-}
+type BookHeaderProps = Omit<BookFrontmatter, "slug" | "date" | "description">;
 
 const BookHeader = ({ title, image, author, rating }: BookHeaderProps) => {
   const imagePath = `/images/books/${image}`;

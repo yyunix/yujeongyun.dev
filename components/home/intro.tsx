@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PostContentWrapper from "../shared/post-content-wrapper";
+import TextContentWrapper from "../shared/text-content-wrapper";
 
 const Intro = () => {
   return (
@@ -12,7 +12,7 @@ const Intro = () => {
           height={100}
         />
       </div>
-      <PostContentWrapper>
+      <TextContentWrapper>
         <h1 className="">Hi, I&apos;m Yujeong.</h1>
 
         <section>
@@ -55,7 +55,7 @@ const Intro = () => {
             yyunix[at]gmail.com
           </p>
         </section>
-      </PostContentWrapper>
+      </TextContentWrapper>
     </>
   );
 };

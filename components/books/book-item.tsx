@@ -1,20 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BookFrontmatter } from "@/types/book";
 
-interface BookItemProps {
-  title: string;
-  description: string;
-  slug: string;
-  image: string;
-  author: string;
-}
+type BookItemProps = Omit<BookFrontmatter, "rating" | "date">;
 
 const BookItem = ({
-  image,
   title,
-  author,
-  slug,
   description,
+  slug,
+  image,
+  author,
 }: BookItemProps) => {
   const linkPath = `/books/${slug}`;
   const imagePath = `/images/books/${image}`;

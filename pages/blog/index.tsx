@@ -1,6 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-
 import { getAllFrontMatters } from "@/lib/utils/mdx";
 import { BlogFrontmatter, AllBlogFrontmatter } from "@/types/blog";
 import AllBlogPosts from "@/components/blog/all-blog";

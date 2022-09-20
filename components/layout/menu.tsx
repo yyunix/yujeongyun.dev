@@ -5,7 +5,6 @@ const MENU = [
   { href: "/", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/books", label: "Books" },
-  { href: "/learning", label: "Learning" },
 ];
 
 interface MenuProps {
