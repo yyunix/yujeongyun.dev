@@ -10,7 +10,7 @@ While I was working on the theme toggler component for this portfolio website, I
 
 In addition to the warning message, the theme icon was not matching the actual current theme. Upon hours of research, I learnt that the error was not SVG related but a hydration mismatch.
 
-A **hydration mismatch** is when the content rendered in Node is not the same as the content rendered in the browser. Remember, Next.js pre-renders every page meaning that it generates HTML for each page in advance on the server side. You can prove the mismatch by console logging the state and comparing the value in the browser console and the terminal where the server is running.
+A **hydration mismatch** is when the content rendered in Node is not the same as the content rendered in the browser. Remember, Next.js pre-renders every page meaning that it generates HTML for each page in advance on the server side. You can prove the mismatch by console logging the state and comparing the values in the browser console and the terminal where the server is running.
 
 Here's a code snippet of my initial approach.
 
