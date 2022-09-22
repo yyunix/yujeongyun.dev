@@ -1,57 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;600;700&display=swap');
 
-:root {
-  --tw-bg-opacity: 1; /* OPACITY HACK FOR CSS VARS */
-  --tw-text-opacity: 1;
-}
 
-.light {
-  --color-fore-primary: rgba(17, 24, 39, var(--tw-text-opacity)); /* gray-900 */
-  --color-fore-secondary: rgba(31, 41, 55, var(--tw-text-opacity)); /* gray-800 */
-  --color-fore-subtle:  rgba(55, 65, 81, var(--tw-text-opacity)); /* gray-700 */
-
-  --color-back-primary: rgba(255, 255, 255, var(--tw-bg-opacity)); /* white */
-  --color-back-secondary: rgba(237, 242, 247, var(--tw-bg-opacity)); /* gray-100 */
-
-  --color-accent: rgba(14, 116, 144, var(--tw-text-opacity)); /* cyan-700 */
-  --color-faint: rgba(15, 23, 42, 0.1); /* gray-900*/
-  --color-code-background: 	#EDF2F7;
-  --color-code-background-file: hsla(210, 38%, 90%, 1);
-
-  /* CODEBLOCK THEME  */
-  --color-code-main: #0f766e;
-  --color-code-secondary: #6d28d9;
-  --color-code-tertiary: #374151;
-  --color-code-subtle: #9ca3af;
-  --color-code-regex: #ef4444;
-}
-
-.dark {
-  --color-fore-primary: rgba(229, 231, 235, var(--tw-text-opacity)); /* gray-200 */
-  --color-fore-secondary: rgba(209, 213, 219, var(--tw-text-opacity)); /* gray-300 */
-  --color-fore-subtle: rgba(156, 163, 175, var(--tw-text-opacity)); /* gray-400 */
-
-  --color-back-primary: rgba(17, 24, 39, var(--tw-bg-opacity)); /* gray-900 */
-  --color-back-secondary: rgba(31, 41, 55, var(--tw-bg-opacity)); /* gray-800 */
-
-  --color-accent: rgba(153, 246, 228, var(--tw-text-opacity)); /* teal-200 */
-  --color-faint: rgba(209, 213, 219, 0.1); /* gray-300 */
-  --color-code-background: #1f2937;  /* gray-800 */
-  --color-code-background-file: #374151;  /* gray-700 */
-
-  /* CODEBLOCK THEME  */
-  --color-code-main: #7dd3fc;
-  --color-code-secondary: #f472b6;
-  --color-code-tertiary: #e2e8f0;
-  --color-code-subtle: #64748b;
-  --color-code-regex: #5eead4;
-}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --tw-bg-opacity: 1; /* OPACITY HACK FOR CSS VARS */
+    --tw-text-opacity: 1;
+  }
+  
+  .light {
+    --color-fore-primary: rgba(17, 24, 39, var(--tw-text-opacity)); /* gray-900 */
+    --color-fore-secondary: rgba(31, 41, 55, var(--tw-text-opacity)); /* gray-800 */
+    --color-fore-subtle:  rgba(55, 65, 81, var(--tw-text-opacity)); /* gray-700 */
+  
+    --color-back-primary: rgba(255, 255, 255, var(--tw-bg-opacity)); /* white */
+    --color-back-secondary: rgba(237, 242, 247, var(--tw-bg-opacity)); /* gray-100 */
+  
+    --color-accent: rgba(14, 116, 144, var(--tw-text-opacity)); /* cyan-700 */
+    --color-faint: rgba(15, 23, 42, 0.1); /* gray-900*/
+    --color-code-background: 	#EDF2F7;
+    --color-code-background-file: hsla(210, 38%, 90%, 1);
+  
+    /* CODEBLOCK THEME  */
+    --color-code-main: #0f766e;
+    --color-code-secondary: #6d28d9;
+    --color-code-tertiary: #374151;
+    --color-code-subtle: #9ca3af;
+    --color-code-regex: #ef4444;
+  }
+  
+  .dark {
+    --color-fore-primary: rgba(229, 231, 235, var(--tw-text-opacity)); /* gray-200 */
+    --color-fore-secondary: rgba(209, 213, 219, var(--tw-text-opacity)); /* gray-300 */
+    --color-fore-subtle: rgba(156, 163, 175, var(--tw-text-opacity)); /* gray-400 */
+  
+    --color-back-primary: rgba(17, 24, 39, var(--tw-bg-opacity)); /* gray-900 */
+    --color-back-secondary: rgba(31, 41, 55, var(--tw-bg-opacity)); /* gray-800 */
+  
+    --color-accent: rgba(153, 246, 228, var(--tw-text-opacity)); /* teal-200 */
+    --color-faint: rgba(209, 213, 219, 0.1); /* gray-300 */
+    --color-code-background: #1f2937;  /* gray-800 */
+    --color-code-background-file: #374151;  /* gray-700 */
+  
+    /* CODEBLOCK THEME  */
+    --color-code-main: #7dd3fc;
+    --color-code-secondary: #f472b6;
+    --color-code-tertiary: #e2e8f0;
+    --color-code-subtle: #64748b;
+    --color-code-regex: #5eead4;
+  }
+  
   body {
     font-family: 'Inter', sans-serif;
    color: var(--color-accent);
