@@ -9,6 +9,7 @@ import { MdxComponents } from "@/components/shared/mdx-components";
 import TextContentWrapper from "@/components/shared/text-content-wrapper";
 import BlogHeader from "@/components/blog/blog-header";
 import BackButton from "@/components/shared/back-button";
+import Layout from "@/components/layout/layout";
 
 interface Params extends ParsedUrlQuery {
   slug: string;
@@ -30,21 +31,19 @@ const BlogDetailPage = ({
   const Component = useMemo(() => getMDXComponent(code), [code]);
 
   return (
-    <div className="max-w-3xl">
-      <Head>
-        <title>{title} - Yujeong Yun</title>
-        <meta name="description" content={description} />
-        <meta property="og:title" content={title} />
-        <meta property="og:url" content={`https://yyunix.dev/blog/${slug}`} />
-        <meta property="og:description" content={description} />
-        <meta property="og:type" content="article" />
-      </Head>
-      <BackButton />
-      <TextContentWrapper>
-        <BlogHeader title={title} date={date} />
-        <Component components={MdxComponents} />
-      </TextContentWrapper>
-    </div>
+    <Layout
+      pageTitle={`${title} - Yujeong Yun`}
+      pageDescription={description}
+      slug={`blog/${slug}`}
+    >
+      <div className="max-w-3xl">
+        <BackButton />
+        <TextContentWrapper>
+          <BlogHeader title={title} date={date} />
+          <Component components={MdxComponents} />
+        </TextContentWrapper>
+      </div>
+    </Layout>
   );
 };
 

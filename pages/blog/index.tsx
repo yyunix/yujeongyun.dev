@@ -1,8 +1,8 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import Head from "next/head";
 import { getAllFrontMatters } from "@/lib/utils/mdx";
 import { BlogFrontmatter, AllBlogFrontmatter } from "@/types/blog";
 import AllBlogPosts from "@/components/blog/all-blog";
+import Layout from "@/components/layout/layout";
 
 const MDX_PATH = "content/blog";
 
@@ -10,24 +10,15 @@ const AllBlogPostsPage = ({
   blogPosts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className="max-w-3xl">
-      <Head>
-        <title>
-          Blog about React.js, Frontend developement, JavaScript - Yujeong Yun
-        </title>
-        <meta
-          name="description"
-          content="Yujeong writes about frontend development, React, and other software tools and tricks she learned from her journey."
-        />
-        <meta property="og:title" content="Blog" />
-        <meta property="og:url" content="yyunix.dev/blog" />
-        <meta
-          property="og:description"
-          content="Yujeong writes about frontend development, React, and other software tools and tricks she learned from her journey."
-        />
-      </Head>
-      <AllBlogPosts blogPosts={blogPosts} />
-    </div>
+    <Layout
+      pageTitle="Blog about React.js, Frontend developement, JavaScript - Yujeong Yun"
+      pageDescription="Yujeong writes about frontend development, React, and other software tools and tricks she learned from her journey."
+      slug="blog"
+    >
+      <div className="max-w-3xl">
+        <AllBlogPosts blogPosts={blogPosts} />
+      </div>
+    </Layout>
   );
 };
 
