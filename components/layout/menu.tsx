@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 const MENU = [
   { href: "/", label: "About" },
   { href: "/blog", label: "Blog" },
-  { href: "/books", label: "Books" },
+  { href: "/projects", label: "Projects" },
 ];
 
 interface MenuProps {

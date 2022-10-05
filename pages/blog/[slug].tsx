@@ -29,7 +29,7 @@ const BlogDetailPage = ({
   const Component = useMemo(() => getMDXComponent(code), [code]);
 
   return (
-    <>
+    <div className="max-w-3xl">
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -39,7 +39,7 @@ const BlogDetailPage = ({
         <BlogHeader title={title} date={date} />
         <Component components={MdxComponents} />
       </TextContentWrapper>
-    </>
+    </div>
   );
 };
 

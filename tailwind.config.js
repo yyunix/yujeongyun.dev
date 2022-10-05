@@ -49,6 +49,9 @@ module.exports = {
         base: { css: disabledCss },
         sm: { css: disabledCss },
       }),
+      gridTemplateColumns: {
+        "project-grid": "repeat(auto-fill,minmax(280px,1fr))",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

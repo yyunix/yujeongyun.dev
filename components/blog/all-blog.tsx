@@ -12,16 +12,15 @@ const AllBlogPosts = ({ blogPosts }: AllBlogFrontmatter) => {
         icon={<PencilIcon />}
         description={
           <>
-            Here&apos;s my attempt at writing blog posts on my experience as a
-            software developer. This is a place where I solidify my learnings
-            and maybe help others at the same time. I generally write about
-            problems I encountered and how I solved them. I welcome critiques,
-            comments or suggestions. Should you have any, please contact me at{" "}
+            This is a place where I solidify my learnings and maybe help others
+            at the same time. I generally write about problems I encountered and
+            how I solved them. I welcome critiques, comments or suggestions.
+            Should you have any, please contact me at{" "}
             <a
-              href="mailto:yyunix36@gmil.acom"
+              href="mailto:christina5707@gmail.acom"
               className="hover:text-accent underline decoration-accent"
             >
-              yyunix36[at]gmail.com
+              christina5707[at]gmail.com
             </a>
             .
           </>

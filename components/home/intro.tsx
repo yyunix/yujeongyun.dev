@@ -3,7 +3,7 @@ import TextContentWrapper from "../shared/text-content-wrapper";
 
 const Intro = () => {
   return (
-    <>
+    <div className="max-w-3xl">
       <div className="w-20 md:w-fit inline-flex bg-back-secondary rounded-full mb-4">
         <Image
           src="/images/site/dinosaur.png"
@@ -56,7 +56,7 @@ const Intro = () => {
           </p>
         </section>
       </TextContentWrapper>
-    </>
+    </div>
   );
 };
 

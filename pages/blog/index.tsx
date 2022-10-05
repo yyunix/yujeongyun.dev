@@ -10,7 +10,7 @@ const AllBlogPostsPage = ({
   blogPosts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div>
+    <div className="max-w-3xl">
       <Head>
         <title>Yujeong&apos;s Digital Space | Software Developer</title>
         <meta name="description" content="JavaScript blog" />
