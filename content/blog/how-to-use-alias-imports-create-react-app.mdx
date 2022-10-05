@@ -1,0 +1,93 @@
+---
+title: How to use alias import with Create React App with TypeScript
+date: "2022-10-04"
+description: Clean up your import statements by using alias imports with Craco
+---
+
+I like to have my import statements all neat and organized. I do not like '../../' everywhere like the screent shot shown below.
+
+![Deeply nested imports](/images/blog/alias-import-before.png)
+
+A solution to implementing alias imports is not as straight forward as one might imagine when a project is bootstrapped with Create React App.
+
+Here is a solution I found without having to eject and override the Webpack configuration. I used a third party library called Craco.
+
+### Step 1: Start a CRA project with TypeScript template
+
+```bash
+npx create-react-app my-app --template typescript
+```
+
+### Step 2: Update your tsconfig.json
+
+Add `baseUrl` and `paths`
+
+```json fileName=tsconfig.json
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": "./src",
+    "paths": {
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@pages/*": ["pages/*"],
+      "@store/*": ["store/*"],
+      "@style/*": ["style/*"],
+      "@type/*": ["types/*"],
+      "@utils/*": ["utils/*"]
+      // Modify as you wish
+    }
+  }
+  // ...
+}
+```
+
+### Step 3: In your terminal, download Craco
+
+As of October 4, 2022, for whatever reason, I couldn't make it work with `npm i @craco/craco`. So I used an alpha version.
+
+```bash
+npm i @craco/craco@7.0.0-alpha.7
+```
+
+### Step 4: Modify Webpack settings with Craco
+
+Create `craco.config.js` in the root directory
+
+```js fileName=craco.config.js
+const path = require(`path`);
+
+module.exports = {
+  webpack: {
+    alias: {
+      "@assets": path.resolve(__dirname, "src/assets"),
+      "@components": path.resolve(__dirname, "src/components"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
+      "@pages": path.resolve(__dirname, "src/pages"),
+      "@store": path.resolve(__dirname, "src/store"),
+      "@style": path.resolve(__dirname, "src/style"),
+      "@type": path.resolve(__dirname, "src/types"),
+      "@utils": path.resolve(__dirname, "src/utils"),
+      // Modify as you wish
+    },
+  },
+};
+```
+
+Update package.json
+
+```json fileName=package.json
+"scripts": {
+  "start": "craco start",
+  "build": "craco build",
+  // ...
+},
+"cracoConfig": "craco.config.js"
+```
+
+That's it! All the required configuration is done and you can now use new alias imports.
+
+![Alias imports](/images/blog/alias-import-after.png)
+
+If you'd like to see a live project with these exact same configuration [see this Git repo of Kanban app](https://github.com/yjcyun/kanban-app)
