@@ -12,8 +12,17 @@ const AllProjectsPage = ({
   return (
     <div>
       <Head>
-        <title>Yujeong&apos;s Digital Space | Software Developer</title>
-        <meta name="description" content="JavaScript blog" />
+        <title>Projects - Yujeong Yun</title>
+        <meta
+          name="description"
+          content="Yujeong works on JavaScript projects including frontend and backend development. She is passionate about coding, learning to code, and practice coding."
+        />
+        <meta property="og:title" content="Projects" />
+        <meta property="og:url" content="yyunix.dev/projects" />
+        <meta
+          property="og:description"
+          content="Yujeong works on JavaScript projects including frontend and backend development. She is passionate about coding, learning to code, and practice coding."
+        />
       </Head>
       <AllProjects projects={projects} />
     </div>

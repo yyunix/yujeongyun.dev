@@ -12,8 +12,19 @@ const AllBlogPostsPage = ({
   return (
     <div className="max-w-3xl">
       <Head>
-        <title>Yujeong&apos;s Digital Space | Software Developer</title>
-        <meta name="description" content="JavaScript blog" />
+        <title>
+          Blog about React.js, Frontend developement, JavaScript - Yujeong Yun
+        </title>
+        <meta
+          name="description"
+          content="Yujeong writes about frontend development, React, and other software tools and tricks she learned from her journey."
+        />
+        <meta property="og:title" content="Blog" />
+        <meta property="og:url" content="yyunix.dev/blog" />
+        <meta
+          property="og:description"
+          content="Yujeong writes about frontend development, React, and other software tools and tricks she learned from her journey."
+        />
       </Head>
       <AllBlogPosts blogPosts={blogPosts} />
     </div>

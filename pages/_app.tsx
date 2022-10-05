@@ -18,6 +18,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <meta property="og:site_name" content="Yujeong Yun" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content={"https://yyunix.dev/images/site/twitter-card.png"}
+        />
+        <meta property="og:image:alt" content="Yujeong Yun" />
+        <meta name="twitter:card" content="summary" />
       </Head>
       <ThemeProvider enableSystem={true} attribute="class">
         <Layout>

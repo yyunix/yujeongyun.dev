@@ -17,12 +17,13 @@ interface Params extends ParsedUrlQuery {
 interface Blog {
   frontmatter: BlogFrontmatter;
   code: string;
+  slug: string;
 }
 
 const MDX_PATH = "content/blog";
 
 const BlogDetailPage = ({
-  blog: { code, frontmatter },
+  blog: { code, frontmatter, slug },
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title, date, description } = frontmatter;
 
@@ -31,8 +32,12 @@ const BlogDetailPage = ({
   return (
     <div className="max-w-3xl">
       <Head>
-        <title>{title}</title>
+        <title>{title} - Yujeong Yun</title>
         <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:url" content={`https://yyunix.dev/blog/${slug}`} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="article" />
       </Head>
       <BackButton />
       <TextContentWrapper>
@@ -54,7 +59,7 @@ export const getStaticProps: GetStaticProps<{ blog: Blog }> = async (
 
   return {
     props: {
-      blog: { code, frontmatter },
+      blog: { code, frontmatter, slug },
     },
   };
 };
